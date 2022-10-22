@@ -1,8 +1,8 @@
 const express = require("express");
 const cors = require("cors");
 
-const routesProducto = require("./routesProducto");
-const routesVentasTienda = require("./ventasPorTienda");
+const routesProducto = require("./Producto.controller");
+const routesVentasTienda = require("./Ventas.controller");
 
 const app = express();
 app.set("port", process.env.PORT || 9000);
