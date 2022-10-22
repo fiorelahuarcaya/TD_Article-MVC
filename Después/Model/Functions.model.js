@@ -1,7 +1,5 @@
 const { MongoClient } = require("mongodb");
 
-const Product = require('./Producto.modelo');
-
  const findProducts = async function(client, tiendaID) {
     const result = await client
       .db(`tienda-${tiendaID}`)
