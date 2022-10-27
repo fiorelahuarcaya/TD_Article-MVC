@@ -1,11 +1,10 @@
-/* PARA NO PERDERME - Este script sirve para realizar la transacción:
- * Venta de productos de la base de datos de la tienda.
- * SE CREARÁ EL REPORTE DE VENTA DE LA TIENDA.
- */
-
+const dotenv = require("dotenv");
 const { MongoClient } = require("mongodb");
 const express = require("express");
 const routes = express.Router();
+
+dotenv.config();
+const uri = process.env.MONGO_URI;
 
 routes.get("/:idTienda/:idUsuario/:idProducto/:cantidad/:pago", (req, res) => {
   const idTienda = req.params.idTienda * 1.0;
@@ -15,8 +14,6 @@ routes.get("/:idTienda/:idUsuario/:idProducto/:cantidad/:pago", (req, res) => {
   const pago = req.params.pago * 1.0;
 
   async function transaccion() {
-    const uri =
-      "mongodb+srv://bratty289:YGTl63QI@pruebamongo.lnhsrdp.mongodb.net/test";
     const client = new MongoClient(uri);
 
     try {
